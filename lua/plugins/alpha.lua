@@ -3,11 +3,16 @@ return {
     config = function ()
         local alpha = require("alpha")
         local dashboard = require("alpha.themes.dashboard")
-        local ascii_art = require("art.fr1")
+
+        local pics = {
+            require("art.fr1"),
+            require("art.neko"),
+            require("art.brand")
+        }
+
+        dashboard.section.header.val = pics[math.random(1, #pics)]
 
         dashboard.section.buttons.val = {}
-
-        dashboard.section.header.val = ascii_art
 
         -- dashboard.section.buttons.val = {
         --   dashboard.button("b", "λ  > Browse files", ":Yazi<CR>"),
