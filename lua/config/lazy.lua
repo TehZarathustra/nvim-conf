@@ -1,5 +1,3 @@
--- Bootstrap lazy.nvim
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -27,4 +25,21 @@ require("lazy").setup({
   install = {colorscheme = {"habamax"}},
   -- automatically check for plugin updates
   checker = {enabled = true},
+})
+
+-- run an update once on VimEnter, silently
+vim.api.nvim_create_autocmd("VimEnter", {
+  once = true,
+  callback = function()
+    vim.schedule(function()
+      local ok, lazy = pcall(require, "lazy")
+      if not ok or not lazy.update then
+        return
+      end
+      -- perform update without showing the UI
+      pcall(function()
+        lazy.update({ show = false })
+      end)
+    end)
+  end,
 })
