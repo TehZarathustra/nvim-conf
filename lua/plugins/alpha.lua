@@ -14,10 +14,6 @@ return {
 
         dashboard.section.buttons.val = {}
 
-        -- dashboard.section.buttons.val = {
-        --   dashboard.button("b", "λ  > Browse files", ":Yazi<CR>"),
-        -- }
-
         alpha.setup(dashboard.opts)
     end
 }
