@@ -4,5 +4,3 @@ require('config.keymaps')
 
 -- Load lazy.nvim
 require("config.lazy")
-
-
