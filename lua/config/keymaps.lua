@@ -1,6 +1,6 @@
--- Leader key, set space as the leader key
+-- leader key, set space as the leader key
 vim.g.mapleader = ' '
--- Leader + w saves file
+-- leader + w saves file
 vim.api.nvim_set_keymap('n', '<Leader>w', ':w<CR>', {noremap = true, silent = true})
 
 

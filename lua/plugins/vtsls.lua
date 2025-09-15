@@ -43,7 +43,6 @@ return {
     if ok then
       capabilities = cmp_lsp.default_capabilities(capabilities)
     end
-
     
   end,
 }

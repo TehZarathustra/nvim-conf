@@ -1,4 +1,4 @@
--- Basic settings
+-- basic settings
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.termguicolors = true
@@ -8,9 +8,12 @@ vim.o.cursorline = true
 vim.o.clipboard = "unnamedplus"
 vim.o.scrolloff = 999
 
-vim.o.tabstop = 4 -- Number of spaces a tab represents
-vim.o.shiftwidth = 4 -- Number of spaces for each indentation
-vim.o.expandtab = true -- Convert tabs to spaces
+-- number of spaces a tab represents
+vim.o.tabstop = 4
+-- number of spaces for each indentation
+vim.o.shiftwidth = 4
+-- convert tabs to spaces
+vim.o.expandtab = true
 
 vim.o.winborder = "rounded"
 
