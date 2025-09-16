@@ -26,10 +26,11 @@ vim.diagnostic.config({
     severity_sort = true,
 })
 
+-- @TODO make it project-local (exrc)
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "javascript",
     callback = function()
-        vim.opt_local.makeprg = "node %"
-        vim.opt_local.errorformat = "%E%f:%l"
+        vim.opt_local.makeprg = "node --test-reporter=tap %"
+        vim.opt_local.errorformat ="  location: '%f:%l:%c'"
     end,
 })
