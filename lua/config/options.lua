@@ -26,3 +26,10 @@ vim.diagnostic.config({
     severity_sort = true,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "javascript",
+    callback = function()
+        vim.opt_local.makeprg = "node %"
+        vim.opt_local.errorformat = "%E%f:%l"
+    end,
+})
