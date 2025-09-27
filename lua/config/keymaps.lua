@@ -1,13 +1,16 @@
--- leader key, set space as the leader key
 vim.g.mapleader = ' '
--- leader + w saves file
-vim.api.nvim_set_keymap('n', '<Leader>w', ':w<CR>', {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap(
+    'n', '<Leader>w', ':w<CR>',
+    {noremap = true, silent = true, desc = 'basically :w'}
+);
 
 vim.keymap.set(
-    "n", "<leader>e", vim.diagnostic.open_float,
-    { silent = true, desc = "Show diagnostics in a float" }
+    'n', '<leader>e', vim.diagnostic.open_float,
+    {silent = true, desc = 'shows popup diagnostics'}
 )
 
 vim.keymap.set(
-    'n', '<leader>\'', ':make<CR>'
+    'n', '<leader>\'', ':make<CR>',
+    {desc = 'makeprg'}
 )

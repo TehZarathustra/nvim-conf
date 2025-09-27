@@ -1,8 +1,8 @@
 return {
-    "xiyaowong/transparent.nvim",
+    'xiyaowong/transparent.nvim',
     config = function()
-        vim.keymap.set("n", "<leader>t", function()
-            vim.cmd("TransparentToggle")
+        vim.keymap.set('n', '<leader>t', function()
+            vim.cmd('TransparentToggle')
         end)
     end
 }
