@@ -49,6 +49,12 @@ return {
         vim.keymap.set("n", "<leader>l", function()
             tryLint()
         end, {desc = "Trigger linting for current file"})
+
+        vim.keymap.set("n", "<leader>L", function()
+            vim.fn.jobstart({"eslint_d", "restart"}, {detach = true})
+            print("eslint_d restarted")
+        end, {desc = "Restart eslint_d daemon"})
+
         vim.keymap.set("n", "<leader>f", function()
             vim.cmd("write")
 
