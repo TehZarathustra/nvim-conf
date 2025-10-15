@@ -31,3 +31,23 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.opt_local.errorformat ='  location: "%f:%l:%c"'
     end,
 })
+
+-- @TODO, start doing it in another file
+local root = vim.fn.expand('~/arcadia/distribution_interface/frontend/static')
+
+local function setup_makeprg()
+  local dir = vim.fn.expand('%:p:h')
+  local rel = dir:gsub(vim.pesc(root .. '/'), '')
+  vim.opt_local.makeprg = string.format(
+    [[sh -lc "cd %s && npm run tanker-sync %s"]],
+    root,
+    vim.fn.shellescape(rel)
+  )
+end
+
+vim.api.nvim_create_augroup('KeysetsSync', {clear = true})
+vim.api.nvim_create_autocmd('BufEnter', {
+  pattern = root .. '/**/keysets.js',
+  callback = setup_makeprg,
+  group = 'KeysetsSync',
+})
